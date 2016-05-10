@@ -1,0 +1,89 @@
+#include	"res.h"
+
+
+#define		IdIcon				15000
+#define		IdPianoBmp			15001
+
+#define		IdFile				1000
+#define		IdPlayfile			1001
+#define		IdPlayUrl			1002
+#define		IdPlayFolder		1003
+#define		IdOpenPlaylist		1004
+#define		IdOpen				1005
+#define		IdSave				1006
+#define		IdSaveAs			1007
+#define		IdExit				1100
+#define		IdPlay				2000
+#define		IdPrevious			2001
+#define		Id_Play				2002
+#define		IdPause				2003
+#define		IdStope				2004
+#define		IdNext				2005
+#define		IdRepeat			2006
+#define		IdShuffle			2007
+#define		IdReport			3000
+#define		IdCreateProcess		3001
+#define		IdCloseProcess		3002
+#define		IdToolMenu			3003
+#define		IdHelp				10000
+#define		Id_Help				10001
+
+#define		IdDialog			19000
+#define		IdDialOk			19001
+#define		IdDialExit			19002
+
+IdIcon			ICON			"main.ico"
+
+IdPianoBmp		BITMAP			"piano.bmp"
+
+MainMenu MENU
+{
+	POPUP "&File"
+	{
+		MENUITEM "&Open",IdOpen
+		MENUITEM "&Save",IdSave
+		MENUITEM "&SaveAs",IdSaveAs
+		MENUITEM SEPARATOR
+		MENUITEM "&PlayFile...",IdPlayfile
+		MENUITEM "&Play URL...",IdPlayUrl
+		MENUITEM "&Play folder",IdPlayFolder
+		MENUITEM SEPARATOR
+		MENUITEM "&Open Playlist",IdOpenPlaylist
+		MENUITEM SEPARATOR
+		MENUITEM "&Exit",IdExit
+	}
+	POPUP "&Play"
+	{
+		MENUITEM "&Previous",IdPrevious
+		MENUITEM "&Play",Id_Play
+		MENUITEM "&Pause",IdPause
+		MENUITEM "&Stop",IdStope
+		MENUITEM "&Next",IdNext
+		MENUITEM SEPARATOR
+		MENUITEM "&Repeat",IdRepeat,HELP
+		MENUITEM "&Shuffle",IdShuffle
+	}
+	POPUP "&View"
+	{
+		MENUITEM "&ReportFile",IdReport
+		MENUITEM SEPARATOR
+		MENUITEM "&Creaza Proces",IdCreateProcess
+		MENUITEM "&Inchide proces",IdCloseProcess
+		MENUITEM SEPARATOR
+		MENUITEM "&Exemplu Tooltip",IdToolMenu
+	}
+	POPUP "&Help"
+	{
+		MENUITEM "&Help",Id_Help
+	}
+}
+
+IdDialog DIALOG DISCARDABLE  0, 0, 100, 70
+STYLE DS_MODALFRAME | DS_3DLOOK | WS_POPUP | WS_VISIBLE | WS_CAPTION |
+WS_SYSMENU | DS_CENTER
+CAPTION "Tooltip"
+FONT 10, "MS Sans Serif"
+BEGIN
+PUSHBUTTON      "Buton ok", IdDialOk, 30, 20, 40, 14
+PUSHBUTTON      "&Exit", IdDialExit, 30, 40, 40, 14
+END
